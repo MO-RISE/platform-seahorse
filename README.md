@@ -184,3 +184,9 @@ sudo iftop -t -s 60 -i <interface>  # Running for 60 seconds and then outputting
 ```bash
 speedtest-cli
 ```
+
+
+
+## Good to know commands
+
+`mosquitto_sub -t '#' -F '%U %t %l' `
