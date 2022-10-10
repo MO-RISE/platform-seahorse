@@ -1,0 +1,74 @@
+version: '3'
+
+services:
+
+  camera-logger-1:
+    build:
+      context: /home/sealog/repos/opendlv-device-camera-rtsp
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+      - /opt/recordings:/recordings
+    working_dir: /recordings
+    command: "--cid=111 --url=rtsp://localhost:8554/axis1 --transport=1 --rec=axis1.rec"
+
+  camera-logger-2:
+    build:
+      context: /home/sealog/repos/opendlv-device-camera-rtsp
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+      - /opt/recordings:/recordings
+    working_dir: /recordings
+    command: "--cid=111 --url=rtsp://localhost:8554/axis2 --transport=1 --rec=axis2.rec"
+
+  camera-logger-3:
+    build:
+      context: /home/sealog/repos/opendlv-device-camera-rtsp
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+      - /opt/recordings:/recordings
+    working_dir: /recordings
+    command: "--cid=111 --url=rtsp://localhost:8554/axis3 --transport=1 --rec=axis3.rec"
+
+  camera-logger-4:
+    build:
+      context: /home/sealog/repos/opendlv-device-camera-rtsp
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+      - /opt/recordings:/recordings
+    working_dir: /recordings
+    command: "--cid=111 --url=rtsp://localhost:8554/axis4 --transport=1 --rec=axis4.rec"
+
+  radar-recorder:
+    image: chrberger/cluon-record:v0.0.3
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+      - /opt/recordings:/recordings
+    working_dir: /recordings
+    command: "--cid=112 --rec=radar.rec --append"
+
+  lidar-recorder:
+    image: chrberger/cluon-record:v0.0.3
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+      - /opt/recordings:/recordings
+    working_dir: /recordings
+    command: "--cid=113 --rec=lidar.rec --append"
+
+  logrotate:
+    image: linkyard/logrotate:1.0.0
+    restart: unless-stopped
+    environment:
+      - LOGROTATE_CRON=0 * * * *
+    volumes:
+      - /opt/recordings:/logs
+      - ./logrotate.conf:/etc/logrotate.conf

@@ -1,0 +1,32 @@
+network:
+    version: 2
+    renderer: networkd
+    ethernets:
+        enp1s0:
+            addresses:
+             - 10.10.10.1/24
+            dhcp4: no
+            routes:
+             - to: 236.6.7.0/24
+               scope: link
+        enp2s0:
+            addresses:
+             - 10.10.20.1/24
+            dhcp4: no
+        enp3s0:
+            addresses:
+             - 10.10.30.1/24
+            dhcp4: no
+            routes:
+             - to: 10.10.10.2/32
+               scope: link
+        enp4s0:
+            addresses:
+             - 10.10.40.1/24
+            dhcp4: no
+        enp5s0:
+            addresses:
+             - 10.10.50.1/24
+            dhcp4: no
+        enp6s0:
+            dhcp4: yes

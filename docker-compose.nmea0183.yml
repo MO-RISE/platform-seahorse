@@ -1,0 +1,14 @@
+version: '3'
+services:
+
+  # $--MWV
+  WindObserver-65:
+    image: ghcr.io/mo-rise/crowsnest-toolbox:v0.4.2
+    restart: unless-stopped
+    network_mode: "host"
+    devices:
+      - "/dev/ttyUSB0"
+    command:
+      [
+        "socat -u /dev/ttyUSB0,b9600,raw,echo=0,crnl STDOUT | b64_encode | raw_to_brefv | mosquitto_pub -l -t 'CROWSNEST/LANDKRABBA/RAW/NMEA0183'"
+      ]
