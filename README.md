@@ -33,7 +33,7 @@ Seahorse can be accessed remotely by RISE when the boat is connected to the Reve
 2. SSH from selog-3 into seahorse-0 by `ssh revere@192.168.0.89`
 3. From seahorse-0 both seahorse-1 and seahorse-2 is accessible:
    - seahorse-1. `ssh revere@10.10.0.2`
-   - seahorse-2: `ssh revere@10.10?`
+   - seahorse-2: `ssh revere@10.10.1.2`
 
 ## Network setup
 
@@ -47,13 +47,17 @@ APU:
 
 Seahorse-1:
 
-- ?
-
-Seahorse-2:
-
+- LIDAR OS2 BOW: (Server) 10.10.42.1 <--> (Sensor) 10.10.42.2 
+- RADAR: Ping address to Multicast (Kinda a )
+- 
 - USB ?: WindObserver 65
 - USB ?: SDR
 - USB ?: SDR
+
+10.10.40.2 and 10.10.41.2 (For the stern ones). Bow is 10.10.42.2. Radar has its own random one.
+
+Seahorse-2:
+- ?
 
 ---
 
