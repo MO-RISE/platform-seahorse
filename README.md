@@ -194,3 +194,16 @@ speedtest-cli
 ## Good to know commands
 
 `mosquitto_sub -t '#' -F '%U %t %l' `
+
+## Reinitzilise LIDARs or config 
+
+```
+ seahorse-1
+
+nc 10.10.42.2 7501
+get_config_param active
+set_udp_dest_auto
+reinitialize
+
+
+```
