@@ -47,17 +47,18 @@ APU:
 
 Seahorse-1:
 
-- LIDAR OS2 BOW: (Server) 10.10.42.1 <--> (Sensor) 10.10.42.2 
+- LIDAR OS2 BOW: (Server) 10.10.42.1 <--> (Sensor) 10.10.42.2
 - RADAR: Ping address to Multicast (Kinda a )
-- 
+-
 - USB ?: WindObserver 65
 - USB ?: SDR
 - USB ?: SDR
 
-10.10.40.2 and 10.10.41.2 (For the stern ones). Bow is 10.10.42.2. Radar has its own random one.
+Seahorse-1:
 
-Seahorse-2:
-- ?
+- LIDAR OS2 STERN: (Server) 10.10.41.1 <--> (Sensor) 10.10.41.2
+- LIDAR OS1 STERN: (Server) 10.10.40.1 <--> (Sensor) 10.10.40.2
+- ANAVS: 239.192.0.3 port: 60003 UDP
 
 ---
 
@@ -189,13 +190,11 @@ sudo iftop -t -s 60 -i <interface>  # Running for 60 seconds and then outputting
 speedtest-cli
 ```
 
-
-
 ## Good to know commands
 
 `mosquitto_sub -t '#' -F '%U %t %l' `
 
-## Reinitzilise LIDARs or config 
+## Reinitzilise LIDARs or config
 
 ```
  seahorse-1
