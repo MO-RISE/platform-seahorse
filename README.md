@@ -204,5 +204,10 @@ get_config_param active
 set_udp_dest_auto
 reinitialize
 
+```
 
+## SOCAT 
+
+```
+socat -u UDP4-RECV:60003,reuseaddr STDOUT
 ```
