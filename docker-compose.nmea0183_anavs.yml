@@ -10,5 +10,5 @@ services:
       - "/dev/ttyUSB0"
     command:
       [
-        "socat -u 239.192.0.3:60003 STDOUT | b64_encode | raw_to_brefv | mosquitto_pub -l -t 'CROWSNEST/SEAHORSE/RAW/NMEA0183'"
+        "socat UDP-L:239.192.0.3:60003 STDOUT | b64_encode | raw_to_brefv | mosquitto_pub -l -t 'CROWSNEST/SEAHORSE/RAW/NMEA0183'"
       ]
