@@ -1,0 +1,27 @@
+version: '3'
+services:
+
+  navico-radar:
+    image: registry.opendlv.org/testing/opendlv-device-radar-navico:v0.0.4
+    restart: unless-stopped
+    network_mode: "host"
+    environment:
+      - DISPLAY=${DISPLAY}
+    command: "--cid=112 --ip=236.6.7.5 --port=6878 --antenna_height=7 --bearing_alignment=0 --gain=10 --interference_rejection=30 --local_interference_rejection=30 --noise_rejection=30 --transmit_lock=0 --rain_clutter=0 --range_alpha=100 --range_bravo=100 --scan_speed=3 --sea_clutter=0 --side_lobe_suppression=0 --target_boost=3 --target_expansion=3 --target_separation=3 --doppler=0"
+
+  crowsnest-processor-radar:
+    image: ghcr.io/mo-rise/crowsnest-processor-opendlv-radar:v0.1.2
+    restart: unless-stopped
+    network_mode: "host"
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+    environment:
+      - CLUON_CID=112
+      - MQTT_BROKER_HOST=localhost
+      - MQTT_BROKER_PORT=1883
+      - MQTT_BASE_TOPIC=CROWSNEST/SEAHORSE/RADAR/0/SWEEP
+      - RADAR_MIN_READING_WEIGHT=0
+      - RADAR_SWEEP_ANGULAR_SUBSETTING=2
+      - RADAR_SWEEP_RADIAL_SUBSETTING=2
