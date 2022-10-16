@@ -49,6 +49,7 @@ Seahorse-1:
 
 - LIDAR OS2 BOW: (Server) 10.10.42.1 <--> (Sensor) 10.10.42.2
 - RADAR: Ping address to Multicast (Kinda a )
+- GNSS (ANavS): (Server) enp68s0f1 10.10.30.1  <--> 10.10.30.2
 -
 - USB ?: WindObserver 65
 - USB ?: SDR
