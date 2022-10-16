@@ -49,7 +49,7 @@ Seahorse-1:
 
 - LIDAR OS2 BOW: (Server) 10.10.42.1 <--> (Sensor) 10.10.42.2
 - RADAR: Ping address to Multicast (Kinda a )
-- GNSS (ANavS): (Server) enp68s0f1 10.10.30.1  <--> 10.10.30.2
+- GNSS (ANavS): (Server) enp68s0f1 10.10.30.1  <--> 10.10.30.2 (Multicast 239.192.0.3 60003)
 -
 - USB ?: WindObserver 65
 - USB ?: SDR
@@ -212,3 +212,6 @@ reinitialize
 ```
 socat -u UDP4-RECV:60003,reuseaddr STDOUT
 ```
+
+
+239.192.0.3
