@@ -2,7 +2,7 @@ version: '3'
 services:
 
   # $--MWV
-  WindObserver-65:
+  ANAVS:
     image: ghcr.io/mo-rise/crowsnest-toolbox:v0.4.2
     restart: unless-stopped
     network_mode: "host"
@@ -10,5 +10,5 @@ services:
       - "/dev/ttyUSB0"
     command:
       [
-        "socat UDP-L:10.10.30.2:60003 STDOUT | b64_encode | raw_to_brefv | mosquitto_pub -l -t 'CROWSNEST/SEAHORSE/RAW/ANAVS/NMEA0183'"
+        "socat UDP-LISTEN:60003 STDOUT | b64_encode | raw_to_brefv | mosquitto_pub -l -t 'CROWSNEST/SEAHORSE/RAW/ANAVS/NMEA'"
       ]
