@@ -15,7 +15,7 @@ services:
     network_mode: "host"
     command:
       [
-        "socat -u UDP4-RECV:10110,reuseaddr STDOUT | raw_to_brefv | mosquitto_pub -l -t 'CROWSNEST/SEAHORSE/RAW/AIS'"
+        "socat -u UDP4-RECV:10110,reuseaddr STDOUT | b64_encode | raw_to_brefv | mosquitto_pub -l -t 'CROWSNEST/SEAHORSE/RAW/AIS'"
       ]
 
   AIS-decoder:
