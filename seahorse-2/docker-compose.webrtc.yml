@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+
+  crowsnest-proxy-webrtc:
+    image: ghcr.io/mo-rise/crowsnest-proxy-webrtc:v0.1.1
+    restart: unless-stopped
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    environment:
+      - MQTT_BROKER_HOST=crowsnest.mo.ri.se
+      - MQTT_BROKER_PORT=443
+      - MQTT_TRANSPORT=websockets
+      - MQTT_TLS=True
+      - MQTT_USER=${MQTT_REMOTE_USERNAME}
+      - MQTT_PASSWORD=${MQTT_REMOTE_PASSWORD}
+      - MQTT_BASE_TOPIC=CROWSNEST/SEAHORSE/WEBRTC
+      - MEDIA_SOURCE=rtsp://host.docker.internal:8554

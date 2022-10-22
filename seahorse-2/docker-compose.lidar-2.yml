@@ -1,0 +1,22 @@
+version: '3'
+services:
+
+  ouster-lidar:
+    image: ghcr.io/mo-rise/crowsnest-connector-lidar-ouster:v0.1.1
+    restart: unless-stopped
+    network_mode: "host"
+    environment:
+      - MQTT_BROKER_HOST=localhost
+      - MQTT_BROKER_PORT=1883
+      - MQTT_TOPIC_POINTCLOUD=CROWSNEST/SEAHORSE/LIDAR/2/POINTCLOUD
+      - OUSTER_HOSTNAME=10.10.42.2
+      - OUSTER_ATTITUDE=0,0,0
+      - POINTCLOUD_FREQUENCY=1
+      - POINTCLOUD_SUBSET_SAMPLING=3
+  # opendlv-device-lidar-os2:
+  #   build:
+  #     context: /home/sealog/repos/opendlv-device-lidar-os2-main
+  #     dockerfile: Dockerfile
+  #   restart: unless-stopped
+  #   network_mode: "host"
+  #   command: "opendlv-device-lidar-os2 --lidar_port=7502 --imu_port=7503 --cid=113 --mode=live"

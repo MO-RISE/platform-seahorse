@@ -1,0 +1,30 @@
+version: '3'
+services:
+
+  camera-1:
+    image: jrottenberg/ffmpeg:4-alpine
+    restart: unless-stopped
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    command: "-stimeout 1000000 -rtsp_transport tcp -r 12.5 -i rtsp://10.10.90.2/axis-media/media.amp?camera=1 -acodec copy -vcodec copy -stimeout 1000000 -f rtsp rtsp://host.docker.internal:8554/axis1"
+
+  camera-2:
+    image: jrottenberg/ffmpeg:4-alpine
+    restart: unless-stopped
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    command: "-stimeout 1000000 -rtsp_transport tcp -r 12.5 -i rtsp://10.10.90.2/axis-media/media.amp?camera=2 -acodec copy -vcodec copy -stimeout 1000000 -f rtsp rtsp://host.docker.internal:8554/axis2"
+
+  camera-3:
+    image: jrottenberg/ffmpeg:4-alpine
+    restart: unless-stopped
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    command: "-stimeout 1000000 -rtsp_transport tcp -r 12.5 -i rtsp://10.10.90.2/axis-media/media.amp?camera=3 -acodec copy -vcodec copy -stimeout 1000000 -f rtsp rtsp://host.docker.internal:8554/axis3"
+
+  camera-4:
+    image: jrottenberg/ffmpeg:4-alpine
+    restart: unless-stopped
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    command: "-stimeout 1000000 -rtsp_transport tcp -r 12.5 -i rtsp://10.10.90.2/axis-media/media.amp?camera=4 -acodec copy -vcodec copy -stimeout 1000000 -f rtsp rtsp://host.docker.internal:8554/axis4"
