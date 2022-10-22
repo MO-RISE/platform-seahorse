@@ -6,10 +6,10 @@ services:
     restart: unless-stopped
     network_mode: "host"
     environment:
-      - MQTT_SOURCE_CLIENT_ID=platform-seahorse-bridge-1
+      - MQTT_SOURCE_CLIENT_ID=platform-seahorse-2-bridge
       - MQTT_SOURCE_HOST=localhost
       - MQTT_SOURCE_PORT=1883
-      - MQTT_REMOTE_CLIENT_ID=platform-seahorse-bridge-1
+      - MQTT_REMOTE_CLIENT_ID=platform-seahorse-2-bridge
       - MQTT_REMOTE_HOST=crowsnest.mo.ri.se
       - MQTT_REMOTE_PORT=443
       - MQTT_REMOTE_TRANSPORT=websockets
