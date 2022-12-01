@@ -1,0 +1,24 @@
+version: '3'
+services:
+
+  mqtt-logger:
+    image: ghcr.io/mo-rise/crowsnest-mqtt-logger:latest
+    # restart: unless-stopped
+    network_mode: "host"
+    volumes:
+      - ./DB:/DB
+      # - D:/CROWSNEST/crowsnest-mqtt-logger/DB:/DB
+    ports: 
+     - 1883:1883 
+    environment:
+      - RUN=LOGGER 
+      # - RUN=PLAYBACK
+      - DB_NAME=MQTT-LOG
+      - MQTT_TOPICS=CROWSNEST/#,TEST/#
+      - MQTT_PLAYBACK_DB=2022-10-02_MQTT-LOG.db
+      - MQTT_PLAYBACK_SPEED=1
+
+volumes:
+  db-data:
+    driver: local
+
