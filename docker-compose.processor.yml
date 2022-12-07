@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     network_mode: "host"
     environment:
-      - MQTT_CLIENT_ID=platfrom-dev-local
+      - MQTT_CLIENT_ID=pprocessor-point-rotation
       - MQTT_BROKER_HOST=localhost
       - MQTT_BROKER_PORT=1883
       - MQTT_TOPIC_IN_RADAR_SWEEP=CROWSNEST/SEAHORSE/RADAR/0/SWEEP
