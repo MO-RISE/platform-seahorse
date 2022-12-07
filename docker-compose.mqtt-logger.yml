@@ -8,8 +8,8 @@ services:
     volumes:
       - ./DB:/DB
       # - D:/CROWSNEST/crowsnest-mqtt-logger/DB:/DB
-    ports: 
-     - 1883:1883 
+    # ports: 
+    #  - 1883:1883 
     environment:
       - RUN=LOGGER 
       # - RUN=PLAYBACK
