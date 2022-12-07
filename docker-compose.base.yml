@@ -30,7 +30,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
   emqx:
-    image: emqx/emqx
+    image: emqx/emqx:4.4.11
     restart: unless-stopped
     environment:
       - EMQX_NAME=crowsnest
