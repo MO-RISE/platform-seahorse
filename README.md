@@ -39,10 +39,12 @@ Seahorse can be accessed remotely by RISE when the boat is connected to the Reve
 
 Connected as:
 
-APU:
+Seahorse-0 (APU):
 
-- Ethernet port ? <-> seahorse-1
-- Ethernet port ? <-> seahorse-2
+- Ethernet port 1 <-> Internet 
+- Ethernet port 2 <-> Not in use  
+- Ethernet port 3 <-> seahorse-2
+- Ethernet port 4 <-> seahorse-1
 - SERIAL<-> IMU
 
 Seahorse-1:
