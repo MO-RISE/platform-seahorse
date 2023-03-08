@@ -4,6 +4,7 @@ services:
 
   traefik:
     image: "traefik:v2.5"
+    container_name: traefik
     restart: unless-stopped
     command:
       - "--log.level=DEBUG"
@@ -31,6 +32,7 @@ services:
 
   emqx:
     image: emqx/emqx:4.4.11
+    container_name: emqx
     restart: unless-stopped
     environment:
       - EMQX_NAME=crowsnest
@@ -55,5 +57,6 @@ services:
 
   rtsp:
     image: docker.io/aler9/rtsp-simple-server:latest
+    container_name: rtsp-server
     restart: unless-stopped
     network_mode: "host"

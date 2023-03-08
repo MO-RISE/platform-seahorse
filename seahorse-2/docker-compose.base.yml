@@ -32,6 +32,7 @@ services:
   emqx:
     image: emqx/emqx
     restart: unless-stopped
+    container_name: emqx
     environment:
       - EMQX_NAME=crowsnest
       - EMQX_HOST=127.0.0.1
@@ -55,5 +56,6 @@ services:
 
   rtsp:
     image: docker.io/aler9/rtsp-simple-server:latest
+    container_name: rtsp-server
     restart: unless-stopped
     network_mode: "host"
