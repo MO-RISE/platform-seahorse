@@ -3,6 +3,7 @@ services:
 
   crowsnest-bridge-mqtt:
     image: ghcr.io/mo-rise/crowsnest-bridge-mqtt:v0.1.6
+    container_name: bridge
     restart: unless-stopped
     network_mode: "host"
     environment:
@@ -17,3 +18,4 @@ services:
       - MQTT_REMOTE_USER=${MQTT_REMOTE_USERNAME}
       - MQTT_REMOTE_PASSWORD=${MQTT_REMOTE_PASSWORD}
       - MQTT_TOPICS=CROWSNEST/#
+
