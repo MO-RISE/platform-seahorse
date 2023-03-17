@@ -2,7 +2,7 @@ version: '3'
 services:
 
   navico-radar:
-    image: registry.opendlv.org/testing/opendlv-device-radar-navico:v0.0.5
+    image: registry.opendlv.org/testing/opendlv-device-radar-navico:v0.0.7
     # image: registry.opendlv.org/testing/opendlv-device-radar-navico:v0.1.0
     container_name: radar
     restart: unless-stopped
