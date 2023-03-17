@@ -10,7 +10,7 @@ services:
     environment:
       - DISPLAY=${DISPLAY}
     # command: "--cid=112 --ip=236.6.7.5 --port=6878 --antenna_height=3 --bearing_alignment=0 --gain=10 --local_interference_rejection=1 --noise_rejection=1 --transmit_lock=0 --rain_clutter=0 --range_alpha=500 --range_bravo=500 --scan_speed=3 --sea_clutter=0 --side_lobe_suppression=0 --target_boost=0 --target_expansion=0 --target_separation=0 --doppler=0"
-    command: "--cid=112 --ip=236.6.7.5 --port=6878 --antenna_height=3 --bearing_alignment=0 --id=112 --id_bravo=222 --gain=10 --gain_bravo=50 --local_interference_rejection=1 --noise_rejection=1 --transmit_lock=0 --rain_clutter=0 --range_alpha=500 --range_bravo=500 --scan_speed=3 --sea_clutter=0 --side_lobe_suppression=0 --target_boost=0 --target_expansion=0 --target_separation=0 --doppler=0"
+    command: "--cid=112 --ip=236.6.7.5 --port=6878 --antenna_height=3 --bearing_alignment=0 --id=0 --id_bravo=222 --gain=10 --gain_bravo=50 --local_interference_rejection=1 --noise_rejection=1 --transmit_lock=0 --rain_clutter=0 --range_alpha=500 --range_bravo=500 --scan_speed=3 --sea_clutter=0 --side_lobe_suppression=0 --target_boost=0 --target_expansion=0 --target_separation=0 --doppler=0"
 
   crowsnest-processor-radar:
     image: ghcr.io/mo-rise/crowsnest-processor-opendlv-radar:v0.1.4
