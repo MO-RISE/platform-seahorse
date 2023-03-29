@@ -15,16 +15,16 @@ services:
       - MQTT_TOPIC_OUT_RADAR_NORTHUP=CROWSNEST/SEAHORSE/RADAR/0/NUP
       - MQTT_TOPIC_OUT_LIDAR_NORTHUP=CROWSNEST/SEAHORSE/LIDAR/0/NUP
 
-  point-rotation-1:
-    image: ghcr.io/mo-rise/crowsnest-processor-point-rotation:latest
-    restart: unless-stopped
-    network_mode: "host"
-    environment:
-      - MQTT_CLIENT_ID=pro-point-rotation-1
-      - MQTT_BROKER_HOST=localhost
-      - MQTT_BROKER_PORT=1883
-      - MQTT_TOPIC_IN_RADAR_SWEEP=CROWSNEST/SEAHORSE/RADAR/1/SWEEP
-      - MQTT_TOPIC_IN_LIDAR_SWEEP=CROWSNEST/SEAHORSE/LIDAR/1/POINTCLOUD
-      - MQTT_TOPIC_IN_HEADING=CROWSNEST/SEAHORSE/GNSS/0/JSON
-      - MQTT_TOPIC_OUT_RADAR_NORTHUP=CROWSNEST/SEAHORSE/RADAR/1/NUP
-      - MQTT_TOPIC_OUT_LIDAR_NORTHUP=CROWSNEST/SEAHORSE/LIDAR/1/NUP
+  # point-rotation-1:
+  #   image: ghcr.io/mo-rise/crowsnest-processor-point-rotation:latest
+  #   restart: unless-stopped
+  #   network_mode: "host"
+  #   environment:
+  #     - MQTT_CLIENT_ID=pro-point-rotation-1
+  #     - MQTT_BROKER_HOST=localhost
+  #     - MQTT_BROKER_PORT=1883
+  #     - MQTT_TOPIC_IN_RADAR_SWEEP=CROWSNEST/SEAHORSE/RADAR/1/SWEEP
+  #     - MQTT_TOPIC_IN_LIDAR_SWEEP=CROWSNEST/SEAHORSE/LIDAR/1/POINTCLOUD
+  #     - MQTT_TOPIC_IN_HEADING=CROWSNEST/SEAHORSE/GNSS/0/JSON
+  #     - MQTT_TOPIC_OUT_RADAR_NORTHUP=CROWSNEST/SEAHORSE/RADAR/1/NUP
+  #     - MQTT_TOPIC_OUT_LIDAR_NORTHUP=CROWSNEST/SEAHORSE/LIDAR/1/NUP
