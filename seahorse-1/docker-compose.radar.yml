@@ -33,7 +33,7 @@ services:
       # - LOG_LEVEL=logging.DEBUG
 
   crowsnest-processor-radar-2:
-    image: ghcr.io/mo-rise/crowsnest-processor-opendlv-radar:0.1.5
+    image: ghcr.io/mo-rise/crowsnest-processor-opendlv-radar:0.1.14
     container_name: radar-processor-2
     restart: unless-stopped
     network_mode: "host"
