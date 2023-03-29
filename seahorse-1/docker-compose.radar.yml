@@ -10,9 +10,9 @@ services:
     environment:
       - DISPLAY=${DISPLAY}
     # command: "--cid=112 --ip=236.6.7.5 --port=6878 --antenna_height=3 --bearing_alignment=0 --gain=10 --interference_rejection=1 --local_interference_rejection=1 --noise_rejection=1 --transmit_lock=0 --rain_clutter=0 --range_alpha=500 --range_bravo=500 --scan_speed=3 --sea_clutter=0 --side_lobe_suppression=0 --target_boost=0 --target_expansion=0 --target_separation=0 --doppler=0"
-    command: "--cid=112 --ip=236.6.7.5 --port=6878 --antenna_height=3 --bearing_alignment=0 --id=1 --id_bravo=2 --gain=10 --gain_bravo=50 --interference_rejection=1 --interference_rejection_bravo=1 --local_interference_rejection=1 --local_interference_rejection_bravo=1 --noise_rejection=1 --noise_rejection_bravo=1 --transmit_lock=0 --rain_clutter=0 --rain_clutter_bravo=0 --range=500 --range_bravo=5000 --scan_speed=3 --scan_speed_bravo=3 --sea_clutter=0 --sea_clutter_bravo=0 --side_lobe_suppression=0 --side_lobe_suppression_bravo=0 --target_boost=0 --target_boost_bravo=0 --sea_state=1 --sea_state_bravo=1 --target_expansion=0 --target_expansion_bravo=0 --target_separation=0 --target_separation_bravo=0 --doppler=0 --doppler_bravo=0 --verbose"
+    command: "--cid=112 --ip=236.6.7.5 --port=6878 --antenna_height=3 --bearing_alignment=0 --id=1201 --id_bravo=1202 --gain=10 --gain_bravo=50 --interference_rejection=1 --interference_rejection_bravo=1 --local_interference_rejection=1 --local_interference_rejection_bravo=1 --noise_rejection=1 --noise_rejection_bravo=1 --transmit_lock=0 --rain_clutter=0 --rain_clutter_bravo=0 --range=500 --range_bravo=5000 --scan_speed=3 --scan_speed_bravo=3 --sea_clutter=0 --sea_clutter_bravo=0 --side_lobe_suppression=0 --side_lobe_suppression_bravo=0 --target_boost=0 --target_boost_bravo=0 --sea_state=1 --sea_state_bravo=1 --target_expansion=0 --target_expansion_bravo=0 --target_separation=0 --target_separation_bravo=0 --doppler=0 --doppler_bravo=0 --verbose"
 
-  crowsnest-processor-radar:
+  crowsnest-processor-radar-1:
     image: ghcr.io/mo-rise/crowsnest-processor-opendlv-radar:v0.1.4
     container_name: radar-processor
     restart: unless-stopped
@@ -23,6 +23,7 @@ services:
           memory: 1024M
     environment:
       - CLUON_CID=112
+      - CLUON_MSG_ID=1201
       - MQTT_BROKER_HOST=localhost
       - MQTT_BROKER_PORT=1883
       - MQTT_BASE_TOPIC=CROWSNEST/SEAHORSE/RADAR/0/SWEEP
@@ -30,19 +31,21 @@ services:
       - RADAR_SWEEP_ANGULAR_SUBSETTING=4
       - RADAR_SWEEP_RADIAL_SUBSETTING=4
 
-  # crowsnest-processor-radar-two:
-  #   image: ghcr.io/mo-rise/crowsnest-processor-opendlv-radar:v0.1.4
-  #   restart: unless-stopped
-  #   network_mode: "host"
-  #   deploy:
-  #     resources:
-  #       limits:
-  #         memory: 1024M
-  #   environment:
-  #     - CLUON_CID=222
-  #     - MQTT_BROKER_HOST=localhost
-  #     - MQTT_BROKER_PORT=1883
-  #     - MQTT_BASE_TOPIC=CROWSNEST/SEAHORSE/RADAR/2/SWEEP
-  #     - RADAR_MIN_READING_WEIGHT=0
-  #     - RADAR_SWEEP_ANGULAR_SUBSETTING=4
-  #     - RADAR_SWEEP_RADIAL_SUBSETTING=4
+  crowsnest-processor-radar-2:
+    image: ghcr.io/mo-rise/crowsnest-processor-opendlv-radar:v0.1.4
+    container_name: radar-processor
+    restart: unless-stopped
+    network_mode: "host"
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+    environment:
+      - CLUON_CID=112
+      - CLUON_MSG_ID=1202
+      - MQTT_BROKER_HOST=localhost
+      - MQTT_BROKER_PORT=1883
+      - MQTT_BASE_TOPIC=CROWSNEST/SEAHORSE/RADAR/1/SWEEP
+      - RADAR_MIN_READING_WEIGHT=0
+      - RADAR_SWEEP_ANGULAR_SUBSETTING=4
+      - RADAR_SWEEP_RADIAL_SUBSETTING=4
