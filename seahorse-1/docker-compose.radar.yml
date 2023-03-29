@@ -30,6 +30,7 @@ services:
       - RADAR_MIN_READING_WEIGHT=0
       - RADAR_SWEEP_ANGULAR_SUBSETTING=4
       - RADAR_SWEEP_RADIAL_SUBSETTING=4
+      - LOG_LEVEL=logging.DEBUG
 
   crowsnest-processor-radar-2:
     image: ghcr.io/mo-rise/crowsnest-processor-opendlv-radar:0.1.5
