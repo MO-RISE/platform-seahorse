@@ -22,7 +22,7 @@ services:
 
   AIS-decoder:
     image: ghcr.io/mo-rise/crowsnest-processor-ais-decode:v0.1.2
-    container_name: cw-ais-processor
+    container_name: cw-ais-decoder
     restart: unless-stopped
     network_mode: "host"
     environment:
