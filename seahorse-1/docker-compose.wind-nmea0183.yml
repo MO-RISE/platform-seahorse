@@ -4,6 +4,7 @@ services:
   # $--MWV
   WINDOBSERVER-65:
     image: ghcr.io/mo-rise/crowsnest-toolbox:v0.4.2
+    container_name: cw-wind-nmea
     restart: unless-stopped
     network_mode: "host"
     devices:

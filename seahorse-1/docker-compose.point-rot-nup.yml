@@ -4,6 +4,7 @@ services:
   point-rotation-0:
     image: ghcr.io/mo-rise/crowsnest-processor-point-rotation:latest
     restart: unless-stopped
+    container_name: cw-point-rot-0
     network_mode: "host"
     environment:
       - MQTT_CLIENT_ID=pro-point-rotation-0
@@ -18,6 +19,7 @@ services:
   point-rotation-1:
     image: ghcr.io/mo-rise/crowsnest-processor-point-rotation:latest
     restart: unless-stopped
+    container_name: cw-point-rot-1
     network_mode: "host"
     environment:
       - MQTT_CLIENT_ID=pro-point-rotation-1

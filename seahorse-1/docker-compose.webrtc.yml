@@ -4,6 +4,7 @@ services:
 
   crowsnest-proxy-webrtc:
     image: ghcr.io/mo-rise/crowsnest-proxy-webrtc:v0.1.1
+    container_name: cw-webrtc
     restart: unless-stopped
     extra_hosts:
       - host.docker.internal:host-gateway

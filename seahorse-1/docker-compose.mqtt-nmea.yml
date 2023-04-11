@@ -2,5 +2,6 @@ version: "3"
 services:
   multicast-nmea:
     image: ghcr.io/mo-rise/crowsnest-connector-mqtt-nmea:latest
+    container_name: cw-nmea-multi
     restart: unless-stopped
     network_mode: "host"

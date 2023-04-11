@@ -3,6 +3,7 @@ services:
 
   mqtt-logger:
     image: ghcr.io/mo-rise/crowsnest-mqtt-rec:latest
+    container_name: cw-rec-mqtt
     # restart: unless-stopped
     network_mode: "host"
     volumes:
@@ -16,7 +17,7 @@ services:
       - DB_NAME=MQTT-LOG
       - MQTT_CLIENT_ID="logger"
       - MQTT_TOPICS=CROWSNEST/#
-      - MQTT_PLAYBACK_DB=2022-12-07_MQTT-LOG.db
+      - MQTT_PLAYBACK_DB=2023-04-11_MQTT-LOG.db
       - MQTT_PLAYBACK_SPEED=1
 
 volumes:

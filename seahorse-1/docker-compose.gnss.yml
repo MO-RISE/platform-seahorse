@@ -2,6 +2,7 @@ version: "3"
 services:
   multicast-nmea:
     image: ghcr.io/mo-rise/crowsnest-connector-udp-nmea:latest
+    container_name: cw-gnss
     restart: unless-stopped
     network_mode: "host"
     environment:

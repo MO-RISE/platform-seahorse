@@ -3,6 +3,7 @@ services:
 
   camera-1:
     image: jrottenberg/ffmpeg:4-alpine
+    container_name: cw-camera-1
     restart: unless-stopped
     extra_hosts:
       - host.docker.internal:host-gateway
@@ -10,6 +11,7 @@ services:
 
   camera-2:
     image: jrottenberg/ffmpeg:4-alpine
+    container_name: cw-camera-2
     restart: unless-stopped
     extra_hosts:
       - host.docker.internal:host-gateway
@@ -17,6 +19,7 @@ services:
 
   camera-3:
     image: jrottenberg/ffmpeg:4-alpine
+    container_name: cw-camera-3
     restart: unless-stopped
     extra_hosts:
       - host.docker.internal:host-gateway
@@ -24,6 +27,7 @@ services:
 
   camera-4:
     image: jrottenberg/ffmpeg:4-alpine
+    container_name: cw-camera-4
     restart: unless-stopped
     extra_hosts:
       - host.docker.internal:host-gateway

@@ -3,6 +3,7 @@ services:
 
   SDR-RTL-AIS:
     image: ghcr.io/bklofas/rtl-ais:latest
+    container_name: cw-ais-rtl
     restart: unless-stopped
     network_mode: "host"
     devices:
@@ -11,6 +12,7 @@ services:
 
   AIS-connector:
     image: ghcr.io/mo-rise/crowsnest-toolbox:v0.4.2
+    container_name: cw-ais-connector
     restart: unless-stopped
     network_mode: "host"
     command:
@@ -20,6 +22,7 @@ services:
 
   AIS-decoder:
     image: ghcr.io/mo-rise/crowsnest-processor-ais-decode:v0.1.2
+    container_name: cw-ais-processor
     restart: unless-stopped
     network_mode: "host"
     environment:
