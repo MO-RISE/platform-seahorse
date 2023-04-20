@@ -15,6 +15,7 @@ services:
       - MQTT_TOPIC_IN_HEADING=CROWSNEST/SEAHORSE/GNSS/0/JSON
       - MQTT_TOPIC_OUT_RADAR_NORTHUP=CROWSNEST/SEAHORSE/RADAR/0/NUP
       - MQTT_TOPIC_OUT_LIDAR_NORTHUP=CROWSNEST/SEAHORSE/LIDAR/0/NUP
+      - CORR_HEADING=0 # Degrees (int)
 
   point-rotation-1:
     image: ghcr.io/mo-rise/crowsnest-processor-point-rotation:latest
