@@ -17,7 +17,7 @@ services:
       - DB_NAME=MQTT-LOG
       - MQTT_CLIENT_ID="logger"
       - MQTT_TOPICS=CROWSNEST/#
-      - MQTT_PLAYBACK_DB=2023-04-11_MQTT-LOG.db
+      - MQTT_PLAYBACK_DB=2023-04-25_MQTT-LOG.db
       - MQTT_PLAYBACK_SPEED=1
 
 volumes:
