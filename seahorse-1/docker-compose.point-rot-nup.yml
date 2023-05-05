@@ -2,7 +2,7 @@ version: '3'
 services:
 
   point-rotation-0:
-    image: ghcr.io/mo-rise/crowsnest-processor-point-rotation:0.0.10
+    image: ghcr.io/mo-rise/crowsnest-connector-point-rotation:0.0.10
     restart: unless-stopped
     container_name: cw-point-rot-0
     network_mode: "host"
@@ -18,7 +18,7 @@ services:
       - CORR_HEADING=0 # Degrees (int)
 
   point-rotation-1:
-    image: ghcr.io/mo-rise/crowsnest-processor-point-rotation:0.0.10
+    image: ghcr.io/mo-rise/crowsnest-connector-point-rotation:0.0.10
     restart: unless-stopped
     container_name: cw-point-rot-1
     network_mode: "host"
@@ -34,7 +34,7 @@ services:
       - CORR_HEADING=0 # Degrees (int)
 
   point-rotation-lidar-0:
-    image: ghcr.io/mo-rise/crowsnest-processor-point-rotation:0.0.10
+    image: ghcr.io/mo-rise/crowsnest-connector-point-rotation:0.0.10
     restart: unless-stopped
     container_name: cw-point-rot-1
     network_mode: "host"
