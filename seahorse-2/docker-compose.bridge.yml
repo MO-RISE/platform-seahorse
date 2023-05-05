@@ -2,7 +2,7 @@ version: '3'
 services:
 
   crowsnest-bridge-mqtt:
-    image: ghcr.io/mo-rise/crowsnest-bridge-mqtt:v0.1.6
+    image: ghcr.io/mo-rise/crowsnest-bridge-mqtt:v0.1.7
     container_name: cw-bridge
     restart: unless-stopped
     network_mode: "host"
