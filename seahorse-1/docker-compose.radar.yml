@@ -101,7 +101,7 @@ services:
       # Pushing radar sweep to MQTT 
       - MQTT_BROKER_HOST=localhost
       - MQTT_BROKER_PORT=1883
-      - MQTT_BASE_TOPIC=CROWSNEST/SEAHORSE/RADAR/0/SWEEP 
+      - MQTT_BASE_TOPIC=CROWSNEST/SEAHORSE/RADAR/1/SWEEP 
 
       # Filtering clouon input messages (1=every spoke, 2=50% of spokes...)
       - RADAR_INPUT_SLICE=2
