@@ -1,21 +1,40 @@
 version: '3'
 services:
 
+  # crowsnest-bridge-mqtt:
+  #   image: ghcr.io/mo-rise/crowsnest-bridge-mqtt:v0.1.7
+  #   container_name: cw-bridge
+  #   restart: unless-stopped
+  #   network_mode: "host"
+  #   environment:
+  #     - MQTT_SOURCE_CLIENT_ID=platform-seahorse-1
+  #     - MQTT_SOURCE_HOST=localhost
+  #     - MQTT_SOURCE_PORT=1883
+  #     - MQTT_REMOTE_CLIENT_ID=platform-seahorse-01
+  #     - MQTT_REMOTE_HOST=crowsnest.mo.ri.se
+  #     - MQTT_REMOTE_PORT=443
+  #     - MQTT_REMOTE_TRANSPORT=websockets
+  #     - MQTT_REMOTE_TLS=true
+  #     - MQTT_REMOTE_USER=${MQTT_REMOTE_USERNAME}
+  #     - MQTT_REMOTE_PASSWORD=${MQTT_REMOTE_PASSWORD}
+  #     - MQTT_TOPICS=CROWSNEST/#
+  #     #- MQTT_TOPICS=CROWSNEST/SEAHORSE/GNSS/0/JSON,CROWSNEST/SEAHORSE/RADAR/0/NUP,CROWSNEST/SEAHORSE/LIDAR/0/NUP,CROWSNEST/SEAHORSE/WIND/0/JSON
+
   crowsnest-bridge-mqtt:
-    image: ghcr.io/mo-rise/crowsnest-bridge-mqtt:v0.1.7
+    image: ghcr.io/mo-rise/crowsnest-bridge-mqtt:latest
     container_name: cw-bridge
     restart: unless-stopped
     network_mode: "host"
     environment:
-      - MQTT_SOURCE_CLIENT_ID=platform-seahorse-1
+      - MQTT_SOURCE_CLIENT_ID=platform-seahorse-bridge-10
       - MQTT_SOURCE_HOST=localhost
       - MQTT_SOURCE_PORT=1883
-      - MQTT_REMOTE_CLIENT_ID=platform-seahorse-01
+      - MQTT_REMOTE_CLIENT_ID=platform-seahorse-bridge-11
       - MQTT_REMOTE_HOST=crowsnest.mo.ri.se
       - MQTT_REMOTE_PORT=443
       - MQTT_REMOTE_TRANSPORT=websockets
       - MQTT_REMOTE_TLS=true
       - MQTT_REMOTE_USER=${MQTT_REMOTE_USERNAME}
       - MQTT_REMOTE_PASSWORD=${MQTT_REMOTE_PASSWORD}
-      - MQTT_TOPICS=CROWSNEST/#
-      #- MQTT_TOPICS=CROWSNEST/SEAHORSE/GNSS/0/JSON,CROWSNEST/SEAHORSE/RADAR/0/NUP,CROWSNEST/SEAHORSE/LIDAR/0/NUP,CROWSNEST/SEAHORSE/WIND/0/JSON
+      # - MQTT_TOPICS=CROWSNEST/SEAHORSE/#
+      - MQTT_TOPICS=CROWSNEST/SEAHORSE/GNSS/0/JSON,CROWSNEST/SEAHORSE/RADAR/0/NUP,CROWSNEST/SEAHORSE/LIDAR/0/NUP,CROWSNEST/SEAHORSE/WIND/0/JSON,CROWSNEST/#
