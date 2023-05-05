@@ -55,7 +55,7 @@ services:
 # --verbose
 
   crowsnest-processor-radar-0:
-    image: ghcr.io/mo-rise/crowsnest-processor-opendlv-radar:0.1.17
+    image: ghcr.io/mo-rise/crowsnest-processor-opendlv-radar:0.1.18
     container_name: cw-radar-processor-0
     restart: unless-stopped
     network_mode: "host"
@@ -64,17 +64,29 @@ services:
         limits:
           memory: 1024M
     environment:
+      # Session ID 
       - CLUON_CID=112
+      # Radar outputs two images diffrensiated by ID (Deafult: 1201 & 1202)
       - CLUON_ENVELOPE_ID=1201
+
+      # Pushing radar sweep to MQTT 
       - MQTT_BROKER_HOST=localhost
       - MQTT_BROKER_PORT=1883
-      - MQTT_BASE_TOPIC=CROWSNEST/SEAHORSE/RADAR/0/SWEEP
+      - MQTT_BASE_TOPIC=CROWSNEST/SEAHORSE/RADAR/0/SWEEP 
+
+      # Filtering clouon input messages (1=every spoke, 2=50% of spokes...)
+      - RADAR_INPUT_SLICE=2
+      # Radar return filter by signal return strength 
       - RADAR_MIN_READING_WEIGHT=0
-      - RADAR_SWEEP_ANGULAR_SUBSETTING=10
-      - RADAR_SWEEP_RADIAL_SUBSETTING=10
+      # Angular subsetting (1=every spoke, 2=50% of spokes...)
+      - RADAR_SWEEP_ANGULAR_SUBSETTING=1
+      # Radial subsetting (1=every spoke element, 2=50% of spoke elements...)
+      - RADAR_SWEEP_RADIAL_SUBSETTING=2
+
+
 
   crowsnest-processor-radar-1:
-    image: ghcr.io/mo-rise/crowsnest-processor-opendlv-radar:0.1.17
+    image: ghcr.io/mo-rise/crowsnest-processor-opendlv-radar:0.1.18
     container_name: cw-radar-processor-1
     restart: unless-stopped
     network_mode: "host"
@@ -83,11 +95,21 @@ services:
         limits:
           memory: 1024M
     environment:
+      # Session ID 
       - CLUON_CID=112
+      # Radar outputs two images diffrensiated by ID (Deafult: 1201 & 1202)
       - CLUON_ENVELOPE_ID=1202
+
+      # Pushing radar sweep to MQTT 
       - MQTT_BROKER_HOST=localhost
       - MQTT_BROKER_PORT=1883
-      - MQTT_BASE_TOPIC=CROWSNEST/SEAHORSE/RADAR/1/SWEEP
+      - MQTT_BASE_TOPIC=CROWSNEST/SEAHORSE/RADAR/0/SWEEP 
+
+      # Filtering clouon input messages (1=every spoke, 2=50% of spokes...)
+      - RADAR_INPUT_SLICE=2
+      # Radar return filter by signal return strength 
       - RADAR_MIN_READING_WEIGHT=0
-      - RADAR_SWEEP_ANGULAR_SUBSETTING=10
-      - RADAR_SWEEP_RADIAL_SUBSETTING=10
+      # Angular subsetting (1=every spoke, 2=50% of spokes...)
+      - RADAR_SWEEP_ANGULAR_SUBSETTING=1
+      # Radial subsetting (1=every spoke element, 2=50% of spoke elements...)
+      - RADAR_SWEEP_RADIAL_SUBSETTING=2
