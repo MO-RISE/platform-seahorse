@@ -4,10 +4,10 @@ services:
   point-rotation-0:
     image: ghcr.io/mo-rise/crowsnest-connector-point-rotation:0.0.10
     restart: unless-stopped
-    container_name: cw-point-rot-0
+    container_name: cw-point-rot-radar-0
     network_mode: "host"
     environment:
-      - MQTT_CLIENT_ID=pro-point-rotation-0
+      - MQTT_CLIENT_ID=pro-point-rot-0
       - MQTT_BROKER_HOST=localhost
       - MQTT_BROKER_PORT=1883
       - MQTT_TOPIC_IN_RADAR_SWEEP=CROWSNEST/SEAHORSE/RADAR/0/SWEEP
@@ -20,7 +20,7 @@ services:
   point-rotation-1:
     image: ghcr.io/mo-rise/crowsnest-connector-point-rotation:0.0.10
     restart: unless-stopped
-    container_name: cw-point-rot-1
+    container_name: cw-point-rot-radar-1
     network_mode: "host"
     environment:
       - MQTT_CLIENT_ID=pro-point-rotation-1
@@ -36,10 +36,10 @@ services:
   point-rotation-lidar-0:
     image: ghcr.io/mo-rise/crowsnest-connector-point-rotation:0.0.10
     restart: unless-stopped
-    container_name: cw-point-rot-1
+    container_name: cw-point-rot-lidar-0
     network_mode: "host"
     environment:
-      - MQTT_CLIENT_ID=pro-point-rotation-lidar-0
+      - MQTT_CLIENT_ID=pro-point-rot-lidar-0
       - MQTT_BROKER_HOST=localhost
       - MQTT_BROKER_PORT=1883
       - MQTT_TOPIC_IN_RADAR_SWEEP=CROWSNEST/SEAHORSE/RADAR/2/SWEEP
