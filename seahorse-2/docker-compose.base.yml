@@ -56,7 +56,7 @@ services:
       - "traefik.tcp.services.emqx-dashboard-service.loadbalancer.server.port=18083"
 
   rtsp:
-    image: docker.io/aler9/rtsp-simple-server:latest
+    image: docker.io/aler9/rtsp-simple-server:0.22.2
     container_name: rtsp-server
     restart: unless-stopped
     network_mode: "host"
