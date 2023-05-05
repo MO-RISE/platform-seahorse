@@ -2,7 +2,7 @@ version: '3'
 services:
 
   point-rotation-0:
-    image: ghcr.io/mo-rise/crowsnest-processor-point-rotation:latest
+    image: ghcr.io/mo-rise/crowsnest-processor-point-rotation:0.0.10
     restart: unless-stopped
     container_name: cw-point-rot-0
     network_mode: "host"
@@ -11,14 +11,14 @@ services:
       - MQTT_BROKER_HOST=localhost
       - MQTT_BROKER_PORT=1883
       - MQTT_TOPIC_IN_RADAR_SWEEP=CROWSNEST/SEAHORSE/RADAR/0/SWEEP
-      - MQTT_TOPIC_IN_LIDAR_SWEEP=CROWSNEST/SEAHORSE/LIDAR/0/POINTCLOUD
+      - MQTT_TOPIC_IN_LIDAR_SWEEP=CROWSNEST/SEAHORSE/LIDAR/2/POINTCLOUD
       - MQTT_TOPIC_IN_HEADING=CROWSNEST/SEAHORSE/GNSS/0/JSON
       - MQTT_TOPIC_OUT_RADAR_NORTHUP=CROWSNEST/SEAHORSE/RADAR/0/NUP
-      - MQTT_TOPIC_OUT_LIDAR_NORTHUP=CROWSNEST/SEAHORSE/LIDAR/0/NUP
+      - MQTT_TOPIC_OUT_LIDAR_NORTHUP=CROWSNEST/SEAHORSE/LIDAR/2/NUP
       - CORR_HEADING=0 # Degrees (int)
 
   point-rotation-1:
-    image: ghcr.io/mo-rise/crowsnest-processor-point-rotation:latest
+    image: ghcr.io/mo-rise/crowsnest-processor-point-rotation:0.0.10
     restart: unless-stopped
     container_name: cw-point-rot-1
     network_mode: "host"
@@ -31,3 +31,20 @@ services:
       - MQTT_TOPIC_IN_HEADING=CROWSNEST/SEAHORSE/GNSS/0/JSON
       - MQTT_TOPIC_OUT_RADAR_NORTHUP=CROWSNEST/SEAHORSE/RADAR/1/NUP
       - MQTT_TOPIC_OUT_LIDAR_NORTHUP=CROWSNEST/SEAHORSE/LIDAR/1/NUP
+      - CORR_HEADING=0 # Degrees (int)
+
+  point-rotation-lidar-0:
+    image: ghcr.io/mo-rise/crowsnest-processor-point-rotation:0.0.10
+    restart: unless-stopped
+    container_name: cw-point-rot-1
+    network_mode: "host"
+    environment:
+      - MQTT_CLIENT_ID=pro-point-rotation-lidar-0
+      - MQTT_BROKER_HOST=localhost
+      - MQTT_BROKER_PORT=1883
+      - MQTT_TOPIC_IN_RADAR_SWEEP=CROWSNEST/SEAHORSE/RADAR/2/SWEEP
+      - MQTT_TOPIC_IN_LIDAR_SWEEP=CROWSNEST/SEAHORSE/LIDAR/0/POINTCLOUD
+      - MQTT_TOPIC_IN_HEADING=CROWSNEST/SEAHORSE/GNSS/0/JSON
+      - MQTT_TOPIC_OUT_RADAR_NORTHUP=CROWSNEST/SEAHORSE/RADAR/2/NUP
+      - MQTT_TOPIC_OUT_LIDAR_NORTHUP=CROWSNEST/SEAHORSE/LIDAR/0/NUP
+      - CORR_HEADING=0 # Degrees (int)
