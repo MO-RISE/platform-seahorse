@@ -20,7 +20,7 @@ services:
 
       --id=1201 
       --range=300
-      --gain=15
+      --gain=10
       --sea_clutter=30 
       --rain_clutter=0 
       --sea_state=1 
@@ -36,7 +36,7 @@ services:
 
       --id_bravo=1202 
       --range_bravo=1000 
-      --gain_bravo=15  
+      --gain_bravo=5  
       --sea_clutter_bravo=50
       --rain_clutter_bravo=0 
       --sea_state_bravo=1 
@@ -77,7 +77,7 @@ services:
       # Radar return filter by signal return strength 
       - RADAR_MIN_READING_WEIGHT=0
       # Angular subsetting (1=every spoke, 2=50% of spokes...)
-      - RADAR_SWEEP_ANGULAR_SUBSETTING=1
+      - RADAR_SWEEP_ANGULAR_SUBSETTING=2
       # Radial subsetting (1=every spoke element, 2=50% of spoke elements...)
       - RADAR_SWEEP_RADIAL_SUBSETTING=2
 
@@ -108,6 +108,6 @@ services:
       # Radar return filter by signal return strength 
       - RADAR_MIN_READING_WEIGHT=0
       # Angular subsetting (1=every spoke, 2=50% of spokes...)
-      - RADAR_SWEEP_ANGULAR_SUBSETTING=1
+      - RADAR_SWEEP_ANGULAR_SUBSETTING=2
       # Radial subsetting (1=every spoke element, 2=50% of spoke elements...)
       - RADAR_SWEEP_RADIAL_SUBSETTING=2
