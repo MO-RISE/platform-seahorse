@@ -3,12 +3,12 @@ version: '3.9'
 services:
 
   # A MediaMTX instance with a single configured source on path: /example
-  mediamtx:
-    image: bluenviron/mediamtx
-    restart: unless-stopped
-    network_mode: host
-    environment:
-      - MTX_PATHS_AXIS_SOURCE=rtsp://10.10.90.2/axis-media/media.amp?camera=1
+  # mediamtx:
+  #   image: bluenviron/mediamtx
+  #   restart: unless-stopped
+  #   network_mode: host
+  #   environment:
+  #     - MTX_PATHS_AXIS_SOURCE=rtsp://10.10.90.2/axis-media/media.amp?camera=1
 
   # Grabbing each frame of the rtsp stream and push to Zenoh using keelson-brefv
   rtsp-to-frames:
@@ -17,5 +17,5 @@ services:
     network_mode: host
     command:
       [
-        "rtsp to_frames -r rise -e seahorse -i sh-1 -s axis -u rtsp://localhost:8554/axis"
+        "rtsp to_frames -r rise -e seahorse -i sh-1 -s axis -u rtsp://10.10.90.2/axis-media/media.amp?camera=1"
       ]
