@@ -17,5 +17,5 @@ services:
     network_mode: host
     command:
       [
-        "rtsp to_frames -r rise -e seahorse -i sealog-4 -s axis -u rtsp://localhost:8554/axis"
+        "rtsp to_frames -r rise -e seahorse -i sh-1 -s axis -u rtsp://localhost:8554/axis"
       ]
