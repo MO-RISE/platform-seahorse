@@ -1,0 +1,50 @@
+version: '3.9'
+
+services:
+
+  # A MediaMTX instance with a single configured source on path: /example
+  # mediamtx:
+  #   image: bluenviron/mediamtx
+  #   restart: unless-stopped
+  #   network_mode: host
+  #   environment:
+  #     - MTX_PATHS_AXIS_SOURCE=rtsp://10.10.90.2/axis-media/media.amp?camera=1
+
+  # Grabbing each frame of the rtsp stream and push to Zenoh using keelson-brefv
+  rtsp-to-frames-5:
+    image: ghcr.io/mo-rise/keelson:0.1.0-pre.14
+    restart: unless-stopped
+    network_mode: host
+    command:
+      [
+        "rtsp to_frames -r rise -e seahorse -i sh-1 --compress jpeg -s axis-5 -u rtsp://10.10.91.2/axis-media/media.amp?camera=1"
+      ]
+
+  rtsp-to-frames-6:
+    image: ghcr.io/mo-rise/keelson:0.1.0-pre.14
+    restart: unless-stopped
+    network_mode: host
+    command:
+      [
+        "rtsp to_frames -r rise -e seahorse -i sh-1 --compress jpeg -s axis-6 -u rtsp://10.10.91.2/axis-media/media.amp?camera=2"
+      ]
+
+  rtsp-to-frames-7:
+    image: ghcr.io/mo-rise/keelson:0.1.0-pre.14
+    restart: unless-stopped
+    network_mode: host
+    command:
+      [
+        "rtsp to_frames -r rise -e seahorse -i sh-1 --compress jpeg -s axis-7 -u rtsp://10.10.91.2/axis-media/media.amp?camera=3"
+      ]
+
+  rtsp-to-frames-8:
+    image: ghcr.io/mo-rise/keelson:0.1.0-pre.14
+    restart: unless-stopped
+    network_mode: host
+    command:
+      [
+        "rtsp to_frames -r rise -e seahorse -i sh-1 --compress jpeg -s axis-8 -u rtsp://10.10.91.2/axis-media/media.amp?camera=4"
+      ]
+
+
