@@ -26,7 +26,7 @@ services:
     network_mode: host
     command:
       [
-        "rtsp to_frames -r rise -e seahorse -i sh-2 --compress jpeg -s axis-6 -u rtsp://10.10.91.2/axis-media/media.amp?camera=2"
+        "rtsp --connect tcp/10.10.10.1:7447 to_frames -r rise -e seahorse -i sh-2 --compress jpeg -s axis-6 -u rtsp://10.10.91.2/axis-media/media.amp?camera=2"
       ]
 
   rtsp-to-frames-7:
@@ -35,7 +35,7 @@ services:
     network_mode: host
     command:
       [
-        "rtsp to_frames -r rise -e seahorse -i sh-2 --compress jpeg -s axis-7 -u rtsp://10.10.91.2/axis-media/media.amp?camera=3"
+        "rtsp --connect tcp/10.10.10.1:7447 to_frames -r rise -e seahorse -i sh-2 --compress jpeg -s axis-7 -u rtsp://10.10.91.2/axis-media/media.amp?camera=3"
       ]
 
   rtsp-to-frames-8:
@@ -44,7 +44,7 @@ services:
     network_mode: host
     command:
       [
-        "rtsp to_frames -r rise -e seahorse -i sh-2 --compress jpeg -s axis-8 -u rtsp://10.10.91.2/axis-media/media.amp?camera=4"
+        "rtsp --connect tcp/10.10.10.1:7447 to_frames -r rise -e seahorse -i sh-2 --compress jpeg -s axis-8 -u rtsp://10.10.91.2/axis-media/media.amp?camera=4"
       ]
 
 
