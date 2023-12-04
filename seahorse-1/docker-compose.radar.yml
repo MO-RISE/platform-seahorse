@@ -49,8 +49,8 @@ services:
       --target_separation_bravo=0 
       --scan_speed_bravo=3 
       --doppler_bravo=0
-     --verbose
       "
+    #  --verbose
 
   crowsnest-processor-radar-0:
     image: ghcr.io/mo-rise/crowsnest-processor-opendlv-radar:0.1.18
