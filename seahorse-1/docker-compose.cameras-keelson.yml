@@ -8,7 +8,7 @@ services:
     restart: unless-stopped
     network_mode: host
     environment:
-      - MTX_PATHS_AXIS_SOURCE=rtsp://root:RISE2020@10.10.7.61/axis-media/media.amp
+      - MTX_PATHS_AXIS_SOURCE=rtsp://10.10.90.2/axis-media/media.amp?camera=1
 
   # Grabbing each frame of the rtsp stream and push to Zenoh using keelson-brefv
   rtsp-to-frames:
