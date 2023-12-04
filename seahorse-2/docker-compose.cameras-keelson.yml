@@ -17,7 +17,7 @@ services:
     network_mode: host
     command:
       [
-        "rtsp --connect tcp://10.10.10.1:7447 to_frames -r rise -e seahorse -i sh-2 --compress jpeg -s axis-5 -u rtsp://10.10.91.2/axis-media/media.amp?camera=1 "
+        "rtsp --connect tcp:/10.10.10.1:7447 to_frames -r rise -e seahorse -i sh-2 --compress jpeg -s axis-5 -u rtsp://10.10.91.2/axis-media/media.amp?camera=1 "
       ]
 
   rtsp-to-frames-6:
