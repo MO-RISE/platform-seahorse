@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+
+  zenoh-router:
+    image: eclipse/zenoh:0.10.0-rc
+    restart: always
+    ports:
+      - 7447:7447/tcp
+      - 8000:8000
+    environment:
+      - RUST_LOG=debug
+    command:
+      [
+        "--listen tcp/[::]:7447",
+        "--cfg=mode:'router'",
+        "--connect tls/zenoh.mo.ri.se:443",
+        "--cfg=transport/link/tls/client_auth:true",
+        "--cfg=transport/link/tls/root_ca_certificate:'/root_ca_certificate.pem'",
+        "--cfg=transport/link/tls/client_private_key:'/client_private_key.pem'",
+        "--cfg=transport/link/tls/client_certificate:'/client_certificate.pem'"
+      ]
+
+    volumes:
+      - ./minica.pem:/root_ca_certificate.pem
+      - ./key.pem:/client_private_key.pem
+      - ./cert.pem:/client_certificate.pem
+
+  # keelson-rest-api:
+  #   image: ghcr.io/mo-rise/keelson:0.1.0-pre.8
+  #   restart: always
+  #   ports:
+  #     - 8001:8001
+  #   command: [
+  #     "rest-api --log-level 10 --connect 'tcp/10.10.7.2:7447' -p 8001"
+  #     ]
