@@ -17,5 +17,5 @@ services:
     network_mode: host
     command:
       [
-        "rtsp to_frames -r rise -e seahorse -i sh-1 -s axis -u rtsp://10.10.90.2/axis-media/media.amp?camera=1"
+        "rtsp to_frames -r rise -e seahorse -i sh-1 --compress jpeg -s axis -u rtsp://10.10.90.2/axis-media/media.amp?camera=1"
       ]
