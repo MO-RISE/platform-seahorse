@@ -18,7 +18,10 @@ services:
         "--cfg=transport/link/tls/client_auth:true",
         "--cfg=transport/link/tls/root_ca_certificate:'/root_ca_certificate.pem'",
         "--cfg=transport/link/tls/client_private_key:'/client_private_key.pem'",
-        "--cfg=transport/link/tls/client_certificate:'/client_certificate.pem'"
+        "--cfg=transport/link/tls/client_certificate:'/client_certificate.pem'",
+        "--cfg=plugins/storage_manager/storages/latest_local/volume:'memory'",
+        "--cfg=plugins/storage_manager/storages/latest_local/key_expr:'${REALM}/${ENTITY_ID}/**'",
+        "--cfg=plugins/storage_manager/storages/latest_local/complete:'false'"
       ]
 
     volumes:
