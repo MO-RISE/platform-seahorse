@@ -13,7 +13,7 @@ services:
   # Grabbing each frame of the rtsp stream and push to Zenoh using keelson-brefv
   rtsp-to-frames-5:
     image: ghcr.io/mo-rise/keelson:0.1.0-pre.14
-    restart: unless-stopped/
+    restart: unless-stopped
     network_mode: host
     command:
       [
