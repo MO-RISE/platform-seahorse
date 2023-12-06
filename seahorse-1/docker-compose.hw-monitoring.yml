@@ -3,7 +3,7 @@ services:
   netdata:
     image: netdata/netdata:latest
     container_name: cw--hw-netdata
-    hostname: 10.10.0.2 # set to fqdn or local ip of host
+    hostname: 10.10.10.2 # set to fqdn or local ip of host
     ports:
       - 19999:19999
     restart: unless-stopped
@@ -23,7 +23,7 @@ services:
 
   hw-monitoring:
     # build: .
-    image: ghcr.io/mo-rise/crowsnest-processor-hw-monitoring:0.0.2
+    image: ghcr.io/mo-rise/crowsnest-processor-hw-monitoring:latest
     container_name: cw-hw-monitoring
     restart: unless-stopped
     network_mode: "host"
