@@ -3,7 +3,8 @@ services:
   netdata:
     image: netdata/netdata:latest
     container_name: cw--hw-netdata
-    hostname: 10.10.0.2 # set to fqdn or local ip of host
+    # hostname: 10.10.0.2 # set to fqdn or local ip of host
+    hostname: 10.10.10.1 # set to fqdn or local ip of host
     ports:
       - 19999:19999
     restart: unless-stopped
