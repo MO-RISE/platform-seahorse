@@ -77,9 +77,9 @@ services:
       # Radar return filter by signal return strength 
       - RADAR_MIN_READING_WEIGHT=0
       # Angular subsetting (1=every spoke, 2=50% of spokes...)
-      - RADAR_SWEEP_ANGULAR_SUBSETTING=2
+      - RADAR_SWEEP_ANGULAR_SUBSETTING=3
       # Radial subsetting (1=every spoke element, 2=50% of spoke elements...)
-      - RADAR_SWEEP_RADIAL_SUBSETTING=2
+      - RADAR_SWEEP_RADIAL_SUBSETTING=3
 
 
 
@@ -108,6 +108,6 @@ services:
       # Radar return filter by signal return strength 
       - RADAR_MIN_READING_WEIGHT=0
       # Angular subsetting (1=every spoke, 2=50% of spokes...)
-      - RADAR_SWEEP_ANGULAR_SUBSETTING=2
+      - RADAR_SWEEP_ANGULAR_SUBSETTING=3
       # Radial subsetting (1=every spoke element, 2=50% of spoke elements...)
-      - RADAR_SWEEP_RADIAL_SUBSETTING=2
+      - RADAR_SWEEP_RADIAL_SUBSETTING=3
