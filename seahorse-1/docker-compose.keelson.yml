@@ -3,7 +3,7 @@ version: "3.9"
 services:
 
   zenoh-router:
-    image: eclipse/zenoh:0.10.0-rc
+    image: eclipse/zenoh:0.10.1-rc
     restart: always
     ports:
       - 7447:7447/tcp
